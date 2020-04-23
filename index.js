@@ -1,10 +1,13 @@
 // *******************
 // NODE MODULES
 // *******************
-
+//add in environment
+require('dotenv').config()
 //required node modules
 let express = require('express')
+let flash = require('connect-flash')
 let layouts = require('express-ejs-layouts')
+let session = require('express-session')
 
 //create an app instance
 let app = express()
@@ -25,11 +28,31 @@ app.use(express.static('static'))
 //decrypt the variables coming in via POST routes (from forms)
 app.use(express.urlencoded({extended: false}))
 
+//set up sessions- store data about a user and their browsing session
+app.use(session({
+    secret: process.env.SESSION_SECRET,
+    resave: false,
+    saveUninitialized: true
+    
+}))
+//set up connect-flash for the flash alert messages (depends on session, order matters)
+app.use(flash())
+
+//custom middleware - make certain variables available to EJS pages through locals
+//this happens on every route w/o having to paste it manually on every
+//next is a callback function similar to async done
+app.use((req, res, next) => {
+    res.locals.alerts = req.flash()
+    next()
+})
+
+
 // *******************
 // ROUTES
 // *******************
 //controllers
 app.use('/auth', require('./controllers/auth'))
+app.use('/profile', require('./controllers/profile'))
 
 //create a home page route
 app.get('/', (req,res) => {
