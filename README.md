@@ -4,14 +4,14 @@ This is a boilerplate for an Express app with local user authentication. This is
 
 ## What It Includes
 
-*Local Auth (email and password)
-*Passport and passport-local
-*Sessions for saving user info and displaying flash messages
-*Settings for PostgresSQL and Sequelize
-*Hashed passwords
-*EJS templating and EJS layouts
-*Seqeulize User model
-*Materialize styling - nav and footer
+* Local Auth (email and password)
+* Passport and passport-local
+* Sessions for saving user info and displaying flash messages
+* Settings for PostgresSQL and Sequelize
+* Hashed passwords
+* EJS templating and EJS layouts
+* Seqeulize User model
+* Materialize styling - nav and footer
 
 ## Included Models
 
@@ -33,5 +33,17 @@ This is a boilerplate for an Express app with local user authentication. This is
 
 
 ## Included Routes
+
+**Routes in Index**
+
+| Method | Path | Purpose |
+|--------|------------|-------------|
+| GET | `/` | Home page |
+| GET | `*` | Catch-all for 404s |
+
+**Routes in controllers/auth.js**
+| Method | Path | Purpose |
+|--------|------------|-------------|
+| GET | `auth/login` | Render login form |
 
 ## Directions For Use
