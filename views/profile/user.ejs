@@ -4,7 +4,7 @@
     <div class="col s4">
         <img src="<%=currentUser.pic%>" alt="profile pic">
     </div>
-    <div>
+    <div class="col s4">
         <p>
             <strong>Name:</strong> <%= currentUser.firstname%> <%=currentUser.lastname%>
         </p>
@@ -14,6 +14,8 @@
         <p>
             <strong>Account created on: </strong><%=moment(currentUser.createdAt).format('MMM Do[,] YYYY')%>
         </p>
-        <p><%=currentUser.bio%><p>
+        <p>
+            <%=currentUser.bio%>
+        <p>
     </div>
 </div>
