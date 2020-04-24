@@ -62,8 +62,40 @@ This is a boilerplate for an Express app with local user authentication. This is
 
 ## Directions For Use
 
-###1. Clone the repository with a different name
+### 1. Clone the repository with a different name
 
 ```sh
 git clone <repo_link> <new_name>
+```
+
+**Example:**
+
+```sh
+git clone https://github.com/essleeung/authBoiler.git fancy-new-things
+```
+
+### 2. Install the modules from package.json
+
+```sh
+npm i
+```
+
+### 3. Customize the new project
+
+Remove irrelevant default stuff. For example: 
+* Title in `layout.ejs`
+* Logo field in nav bar
+* Description and repo fields in package.json
+* Remove the boilerplate's readme content.
+* Swith favicon to project-specific one (`layout.ejs` head section)
+
+### 4. Create a new database for the project.
+
+```sh
+createdb <new_db_name>
+```
+
+**Example:**
+```sh
+createdb fancy_db
 ```
