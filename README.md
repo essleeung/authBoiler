@@ -100,5 +100,65 @@ createdb <new_db_name>
 createdb fancy_db
 ```
 
-### Alter Sequelize Config File
+### 5. Alter Sequelize Config File
+
 In `config/config.json`, update the database name to the one created in step 4. Other settings likely okay, but check username, password, and dialect.
+
+### 6. Check user model for relevance to new project's needs
+
+Remove irrelevant fields in user model and user migration files.
+
+### 7. Run the sequelize migrations
+
+```sh
+sequelize db:migrate
+```
+
+### 8. Create a file for environment variables either in the terminal or text editor.
+
+```sh
+touch.env
+```
+
+Include the following .env variables:
+
+* SESSION_SECRET - this is a key for the session to use
+
+### 9. Run server and check that everything is a-ok.
+
+```sh
+nodemon
+``` 
+OR 
+
+```sh
+node index.js
+```
+
+### 10. Delete the origin that points to the boilerplate repo
+
+Currently if we run this command: 
+
+```sh
+git remote -v
+```
+
+It will show `origin` as being hooked up to the boilerplate repo. We want a fresh repo instead, so remove the orgin remote
+
+```sh
+git remote remove origin
+```
+
+### 11. Create an empty git repository
+
+Follow instructions for creating new repo on Github website.
+
+```sh
+git init
+git add .
+git commit -m 'initial commit'
+git remote add origin <new_repo_link>
+git push origin master
+```
+
+***Rock on! You're done!***
